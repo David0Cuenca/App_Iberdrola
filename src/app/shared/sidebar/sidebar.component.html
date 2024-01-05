@@ -13,21 +13,19 @@
             <div class="sidebar-sticky">
                 <!-- Logo y título -->
                 <hr>
-                <div class="text-center">
-                    <img src="../../../assets/Iberdrola-logo.png" alt="Iberdrola Logo" class="img-fluid">
-                    <p class="mt-2 text-light fw-bolder">Iberdrola</p>
+                <div class="row text-center align-items-center">
+                    <a class="text-decoration-none" routerLink="/pagina-principal">
+                            <img width="50%" src="../../../assets/Iberdrola-logo.png" alt="Iberdrola Logo" class="img-fluid">
+                            <p class="mt-2 text-light fw-bolder">Iberdrola</p>
+                    </a>
                 </div>
                 <hr>
-                <!-- Botones -->
                 <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link bg-light" href="#">Botón 1</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Botón 2</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Botón 3</a>
+                    <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
+                    <a [routerLink]="[menuItem.path]">
+                        <i class="nc-icon {{menuItem.icon}}"></i>
+                        <p class="text-b">{{menuItem.title}}</p>
+                    </a>
                     </li>
                 </ul>
             </div>
